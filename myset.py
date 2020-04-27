@@ -28,6 +28,13 @@ class Set:
     def __or__(self, other):    return self.union(other)     # self | other
     def __repr__(self):         return 'Set({})'.format(repr(self.data))  
     def __iter__(self):         return iter(self.data)       # for x in self:
+
+    def __ior__(self, other):
+        pass
+
+    def __iand__(self, other):
+        pass
+    
     def add(self, elem):
         if elem not in self.data:
             self.data.append(elem)
