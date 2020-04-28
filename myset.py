@@ -30,11 +30,13 @@ class Set:
     def __iter__(self):         return iter(self.data)       # for x in self:
 
     def __ior__(self, other):
-        self.data = self.concat(other.data)
+        self.concat(other.data)
         return Set(self.data)
 
     def __iand__(self, other):
-        pass
+        res = [x for x in self.data if x in other.data]
+        self.data = res
+        return self        
     
     def add(self, elem):
         if elem not in self.data:
@@ -54,4 +56,6 @@ print(3 not in y)  # membership test
 print(list(x))   # convert to list because x is iterable
 
 x |= y
+print(x)
+x &= y
 print(x)
