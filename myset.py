@@ -30,11 +30,13 @@ class Set:
     def __iter__(self):         return iter(self.data)       # for x in self:
 
     def __ior__(self, other):
-        self.data = self.concat(other.data)
-        return Set(self.data)
+        self.concat(other.data) # in-place operation |
+        return self             # for = 
 
     def __iand__(self, other):
-        pass
+        res = [x for x in self.data if x in other.data]
+        self.data = res
+        return self
     
     def add(self, elem):
         if elem not in self.data:
