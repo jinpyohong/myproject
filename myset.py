@@ -3,16 +3,16 @@ class Set:
         self.data = []                 # Manages a list
         self.concat(value)
 
-    def intersection(self, other):        # other is any sequence
+    def intersection(self, other):     # other is any sequence
         res = []                       # self is the subject
         for x in self.data:
-            if x in other:             # Pick common items
+            if x in other.data:        # Pick common items
                 res.append(x)
         return Set(res)                # Return a new Set
 
     def union(self, other):            # other is any sequence
         res = self.data[:]             # Copy of my list
-        for x in other:                # Add items in other
+        for x in other.data:           # Add items in other
             if not x in res:
                 res.append(x)
         return Set(res)
@@ -30,10 +30,10 @@ class Set:
     def __iter__(self):         return iter(self.data)       # for x in self:
 
     def __ior__(self, other):
-        pass
+        self.data = self.concat(other.data) # in-place operation (|)
+        return self            # for assignment (=)
 
     def __iand__(self, other):
-        pass
     
     def add(self, elem):
         if elem not in self.data:
