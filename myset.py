@@ -57,3 +57,5 @@ print(list(x))   # convert to list because x is iterable
 
 x |= y
 print(x)
+x &= y
+print(x)
