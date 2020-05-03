@@ -43,20 +43,20 @@ class Set:
         if elem not in self.data:
             self.data.append(elem)
             
-    
-x = Set([1,3,5,7, 1, 3])
-y = Set([2,1,4,5,6])
-print(x, y, len(x))
-print(x.intersection(y), y.union(x))
-print(x & y, x | y)
-print(x[2], y[:2])
-for element in x:
-    print(element, end=' ')
-print()
-print(3 not in y)  # membership test
-print(list(x))   # convert to list because x is iterable
+if __name__ == '__main__':    
+    x = Set([1,3,5,7, 1, 3])
+    y = Set([2,1,4,5,6])
+    print(x, y, len(x))
+    print(x.intersection(y), y.union(x))
+    print(x & y, x | y)
+    print(x[2], y[:2])
+    for element in x:
+        print(element, end=' ')
+    print()
+    print(3 not in y)  # membership test
+    print(list(x))   # convert to list because x is iterable
 
-x |= y
-print(x)
-x &= y
-print(x)
+    x |= y
+    print(x)
+    x &= y
+    print(x)
