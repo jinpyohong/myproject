@@ -1,12 +1,5 @@
-from myset import Set
-
 import pytest
-# import unittest
-
-xl = ['a', 'b', 'c', 1, 2, 3] + ['b', 2]
-yl = ['a', 3] 
-set_x = set(xl)
-set_y = set(yl)
+from myset import Set
 
 @pytest.fixture
 def x():
@@ -14,7 +7,7 @@ def x():
 
 @pytest.fixture
 def y():
-    return Set(['a', 3])
+    return Set(['x', 3])
 
 @pytest.fixture
 def xx():
@@ -22,11 +15,12 @@ def xx():
 
 @pytest.fixture
 def yy():
-    return set(['a', 3])
+    return set(['x', 3])
         
 def test_init():
-    xl = ['a', 'b', 'c', 1, 2, 3] + ['b', 2]
+    xl = ['a', 'b', 'c', 1, 2, 3] + ['x', 3]
     x = Set(xl)
+    assert len(x.data) == len(set(xl))  # check duplication
     assert set(x.data) == set(xl)
 
 def test_init_empty():
